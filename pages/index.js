@@ -1,12 +1,14 @@
 import React from 'react';
-import Header from '../components/shared/header';
 import BaseLayout from '../components/layouts/BaseLayout';
+import { Button, Container } from 'reactstrap';
 
 class Index extends React.Component {
   render () {
     return (
        <BaseLayout >
-         <h1>I am index Page</h1>
+         <Container >
+           <Button color={'danger'}> danger</Button >
+         </Container >
        </BaseLayout >
     );
   }

@@ -6,20 +6,21 @@ class Header extends React.Component {
     return (
        <React.Fragment >
          <Link href={'/'}>
-           <a >Home</a >
+           <a >Home </a >
          </Link >
          <Link href={'/about'}>
-           <a >About</a >
+           <a >About </a >
          </Link >
          <Link href={'/portfolios'}>
-           <a >Portfolios</a >
+           <a >Portfolios </a >
          </Link >
          <Link href={'/blogs'}>
-           <a >Blogs</a >
+           <a >Blogs </a >
          </Link >
          <Link href={'/cv'}>
-           <a >Cv</a >
+           <a >Cv </a >
          </Link >
+
        </React.Fragment >
     );
   }
