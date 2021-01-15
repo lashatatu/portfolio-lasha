@@ -1,25 +1,9 @@
-import '../styles/globals.css';
-import '../styles/main.scss';
-import '../styles/shared/_fonts.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/globals.css';
+import '../styles/shared/_fonts.scss';
+import '../styles/main.scss';
 import React from 'react';
 
-class App extends React.Component {
-
-  static async getInitialProps ( { Component, ctx } ) {
-    let pageProps = {};
-
-    if ( Component.getInitialProps ) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return {pageProps};
-  }
-
-  render () {
-    const { Component, pageProps } = this.props;
-    return <Component {...pageProps} />;
-  }
-}
+const App = ( { Component, pageProps } ) => <Component {...pageProps} />;
 
 export default App;

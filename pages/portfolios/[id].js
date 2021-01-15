@@ -3,16 +3,16 @@ import axios from 'axios';
 import BasePage from '@/components/BasePage';
 
 const Portfolio =({portfolio})=> {
-    return (
-       <BaseLayout >
-         <BasePage>
+  return (
+     <BaseLayout >
+       <BasePage>
          <h1 >I am Portfolio page </h1 >
          <h2 >{portfolio.title}</h2 >
          <p >BODY: {portfolio.body}</p >
          <p >ID: {portfolio.id}</p >
-         </BasePage>
-       </BaseLayout >
-    );
+       </BasePage>
+     </BaseLayout >
+  );
 
 }
 

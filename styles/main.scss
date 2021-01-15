@@ -1,5 +1,25 @@
 @import "shared/fonts";
+@import "index";
+@import "components/header";
 
-.customClassFromFile {
-  color: blue;
+html,body{
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.base-page{
+  padding-top: 150px;
+  color: white;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.self-typed{
+  font-size: 31px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
