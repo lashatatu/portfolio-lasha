@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from 'reactstrap';
+import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from 'reactstrap';
 
 import Link from 'next/link';
 
@@ -20,6 +20,14 @@ const BsNavBrand = () => {
      </Link >
   );
 };
+
+const LoginLink=()=>{
+ return <span className={'nav-link port-navbar-link clickable'}>Login</span>
+}
+
+const LogoutLink=()=>{
+ return <span className={'nav-link port-navbar-link clickable'}>Logout</span>
+}
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,6 +82,14 @@ const Header = () => {
                />
              </NavItem >
            </Nav >
+           <Nav navbar>
+             <NavItem className="port-navbar-item">
+               <LoginLink/>
+             </NavItem >
+             <NavItem className="port-navbar-item">
+               <LogoutLink/>
+             </NavItem >
+           </Nav>
          </Collapse >
        </Navbar >
      </div >
