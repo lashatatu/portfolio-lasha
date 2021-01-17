@@ -41,7 +41,7 @@ const Index = () => {
              >
                <div className="hero-welcome-text">
                  <h1 >
-                   Welcome to the portfolio website of Filip Jerga.
+                   This is the Portfolio website of Lasha Tatulashvili.
                    Get informed, collaborate and discover projects I was working on through the years!
                  </h1 >
                </div >
