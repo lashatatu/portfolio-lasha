@@ -21,9 +21,10 @@ const BsNavBrand = () => {
   );
 };
 
-const LoginLink=()=>{
- return <span className={'nav-link port-navbar-link clickable'}>Login</span>
-}
+const LoginLink=()=>
+   <a className={"navbar-brand port-navbar-brand"} href={"/api/v1/login"}>Login</a >
+  // <BsNavLink href={"/api/v1/login"} title={"login"}/>
+
 
 const LogoutLink=()=>{
  return <span className={'nav-link port-navbar-link clickable'}>Logout</span>
@@ -39,7 +40,7 @@ const Header = () => {
           className="port-navbar port-default absolute"
           collor="transparent"
           dark
-          expand="md"
+          expand="lg"
        >
          <BsNavBrand />
          <NavbarToggler onClick={toggle}/>
