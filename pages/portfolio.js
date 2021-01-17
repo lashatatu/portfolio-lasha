@@ -1,10 +1,12 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import axios from 'axios';
 import BasePage from '@/components/BasePage';
+import {useGetUser} from '@/actions/user';
 
 const Portfolio =({portfolio})=> {
+  const {data, loading}=useGetUser();
     return (
-       <BaseLayout >
+       <BaseLayout user={data} loading={loading}>
          <BasePage>
          <h1 >I am Portfolio page </h1 >
          <h2 >{portfolio.title}</h2 >
