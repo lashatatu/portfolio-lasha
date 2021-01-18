@@ -1,7 +1,7 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import axios from 'axios';
 import BasePage from '@/components/BasePage';
-import {useGetUser} from '@/actions/user';
+import { useGetUser } from '@/actions/user';
 
 const Portfolio =({portfolio})=> {
   const {data, loading}=useGetUser();
@@ -15,7 +15,6 @@ const Portfolio =({portfolio})=> {
          </BasePage>
        </BaseLayout >
     );
-
 }
 
 Portfolio.getInitialProps = async( { query } )=> {

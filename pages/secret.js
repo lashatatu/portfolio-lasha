@@ -10,11 +10,11 @@ const Secret = ( {user,loading } ) => {
           loading={loading}
        >
          <BasePage >
-           <h1 >I am Secret page - Hello world</h1 >
+           <h1 >I am Secret page - {user.name}</h1 >
          </BasePage >
        </BaseLayout >
     );
 
 };
 
-export default withAuth(Secret);
+export default withAuth(Secret)();
