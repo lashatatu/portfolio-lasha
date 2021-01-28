@@ -1,11 +1,10 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import BasePage from '@/components/BasePage';
 import Link from 'next/link';
-import {useGetPosts} from '../../actions';
 import {useGetUser} from '@/actions/user';
+import PortfoliosApi from '../../lib/api/portfolios';
 
 const Portfolios = () => {
-  const { data, error, loading } = useGetPosts();
   const { data:dataU, loading:loadingU } = useGetUser();
   const renderPosts = ( posts ) => {
     return posts.map(post =>
@@ -28,24 +27,20 @@ const Portfolios = () => {
      <BaseLayout user={dataU} loading={loadingU}>
        <BasePage >
          <h1 >I am Portfolios Page</h1 >
-         {
-           loading &&
-           <p > loading data...</p >
-         }
-         {data &&
          <ul >
            {
-             renderPosts(data)
+             renderPosts([])
            }
          </ul >
-         }
-         {error &&
-         <div className={'alert alert-danger'}>{error.message}</div >
-         }
        </BasePage >
      </BaseLayout >
   );
-
 };
+
+export function getStaticProps () {
+  return {
+    props:{portfolios:[]}
+  }
+}
 
 export default Portfolios;
