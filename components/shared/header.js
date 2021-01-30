@@ -34,15 +34,14 @@ const LogoutLink = () =>
       href="/api/v1/logout"
    >Logout</a >;
 
-const Header = ( { user, loading } ) => {
+const Header = ( { user, loading, className } ) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen( !isOpen);
 
   return (
      <div >
        <Navbar
-          className="port-navbar port-default absolute"
-          collor="transparent"
+          className={`port-navbar port-default absolute ${className}`}
           dark
           expand="lg"
        >
