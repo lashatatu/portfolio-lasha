@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 const PortfolioForm = ( { onSubmit } ) => {
@@ -105,12 +105,33 @@ const PortfolioForm = ( { onSubmit } ) => {
          <label htmlFor="endDate">End Date</label >
          <div >
            <DatePicker
+              disabled={ !endDate}
               showMonthDropdown
               showYearDropdown
               selected={endDate}
-              onChange={handleDateChange("endDate",setEndDate)}
+              onChange={handleDateChange('endDate', setEndDate)}
            />
          </div >
+       </div >
+       <div className="form-group">
+         {endDate &&
+         <button
+            type={'buton'}
+            className={'btn btn-danger'}
+            onClick={() => handleDateChange('endDate', setEndDate)(null)}
+         >
+           No end date
+         </button >
+         }
+         { !endDate &&
+         <button
+            type={'buton'}
+            className={'btn btn-success'}
+            onClick={() => handleDateChange('endDate', setEndDate)(new Date(new Date().setHours(0, 0, 0, 0)))}
+         >
+           set end date
+         </button >
+         }
        </div >
        <button
           type="submit"
