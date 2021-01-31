@@ -1,13 +1,12 @@
-import PortfoliosApi from '@/lib/api/portfolios';
+import PortfolioApi from '@/lib/api/portfolios';
+import auth0 from '@/utils/auth0';
 
-export default async function createPortfolio ( req, res ) {
+export default async function createPortfolio(req, res) {
   try {
-    const data = req.body;
-    await new PortfoliosApi().createPortfolio(data);
-    return res.json({ message: 'portfolio was created!' });
-  } catch ( e ) {
-    console.log('weewewew');
+    const { accessToken } = await auth0.getSession(req);
+    const createdPortfolio=await new PortfolioApi(accessToken).createPortfolio(req.body);
+    return res.json(json.data);
+  } catch(e) {
     return res.status(e.status || 400).end(e.message);
   }
-
 }

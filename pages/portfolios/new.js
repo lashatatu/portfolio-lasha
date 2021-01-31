@@ -7,9 +7,8 @@ import { createPortfolio } from '@/actions/portfolios';
 
 const PortfolioNew = ( { user, loading: userLoading } ) => {
 
-  const _createPortfolio = ( data ) => {
-    alert(JSON.stringify(data));
-    createPortfolio(data);
+  const _createPortfolio = (data) => {
+    createPortfolio(data)
   };
 
   return (
