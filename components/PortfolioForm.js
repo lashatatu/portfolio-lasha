@@ -86,7 +86,7 @@ const PortfolioForm = ( { onSubmit } ) => {
             className="form-control"
             id="description"
          >
-            </textarea >
+</textarea >
        </div >
 
        <div className="form-group">
