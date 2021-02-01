@@ -13,8 +13,12 @@ const PortfolioEdit = ( { user } ) => {
   const { data: initialData } = useGetPortfolio(router.query.id);
 
   const _updatePortfolio = async( data ) => {
-    await updatePortfolio(router.query.id, data);
-    toast.success("Portfolio has been updated",{autoClose:2000})
+    try {
+      await updatePortfolio(router.query.id, data);
+      toast.success("Portfolio has been updated",{autoClose:2000})
+    }catch {
+      toast.error("Oops error",{autoClose:2000})
+    }
   };
 
   return (
