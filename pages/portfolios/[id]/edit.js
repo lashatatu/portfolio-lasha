@@ -2,13 +2,18 @@ import BaseLayout from '@/components/layouts/BaseLayout';
 import BasePage from '@/components/BasePage';
 import withAuth from '@/hoc/withAuth';
 import { useRouter } from 'next/router';
-import { useGetPortfolio } from '@/actions/portfolios';
+import { useGetPortfolio, useUpdatePortfolio } from '@/actions/portfolios';
 import PortfolioForm from '@/components/PortfolioForm';
 import { Col, Row } from 'reactstrap';
 
 const PortfolioEdit = ( { user } ) => {
   const router = useRouter();
-  const { data } = useGetPortfolio(router.query.id);
+  const [updatePortfolio, { data, error, loading }] = useUpdatePortfolio();
+  const { data: initialData } = useGetPortfolio(router.query.id);
+
+  const _updatePortfolio = ( data ) => {
+    updatePortfolio(router.query.id, data);
+  };
 
   return (
      <BaseLayout
@@ -18,10 +23,10 @@ const PortfolioEdit = ( { user } ) => {
        <BasePage header={'Portfolio Edit'}>
          <Row >
            <Col md={'8'}>
-             {data &&
+             {initialData &&
              <PortfolioForm
-                onSubmit={( data => alert(JSON.stringify(data)) )}
-                initialData={data}
+                onSubmit={_updatePortfolio}
+                initialData={initialData}
              />
              }
            </Col >
