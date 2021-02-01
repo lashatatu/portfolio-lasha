@@ -11,7 +11,6 @@
     "@auth0/nextjs-auth0": "^0.16.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
-    "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
     "next": "10.0.5",
     "next-routes": "^1.4.2",
