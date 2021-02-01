@@ -1,6 +1,6 @@
 import { Card, CardBody, CardHeader, CardText, CardTitle } from 'reactstrap';
 
-const PortfolioCard=( { portfolio })=>{
+const PortfolioCard=( { portfolio,children })=>{
   return(
      <Card className="portfolio-card">
        <CardHeader className="portfolio-card-header">{portfolio.jobTitle}</CardHeader>
@@ -8,6 +8,9 @@ const PortfolioCard=( { portfolio })=>{
          <p className="portfolio-card-city">{portfolio.location}</p>
          <CardTitle className="portfolio-card-title">{portfolio.title}</CardTitle>
          <CardText className="portfolio-card-text">{portfolio.description}</CardText>
+         {
+           children
+         }
        </CardBody>
      </Card>
   )

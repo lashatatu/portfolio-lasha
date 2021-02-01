@@ -24,7 +24,6 @@ export async function getStaticPaths() {
   const json = await new PortfolioApi().getAll();
   const portfolios = json.data;
 
-  // Get the paths we want pre-render based on portfolio ID
   const paths = portfolios.map(portfolio => {
     return {
       params: {id: portfolio._id}
