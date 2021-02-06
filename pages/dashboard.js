@@ -1,18 +1,21 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import BasePage from '@/components/BasePage';
-import auth0, { withAuth } from 'utils/auth0';
+import withAuth from '@/hoc/withAuth';
 import { Col, Row } from 'reactstrap';
 import Masthead from 'components/shared/Masthead';
 import PortDropdown from 'components/shared/Dropdown';
 import Link from 'next/link';
-import BlogApi from 'lib/api/blogs';
-import { useUpdateBlog } from '@/actions/blogs';
+import { useUpdateBlog,useGetUserBlogs } from '@/actions/blogs';
+import { toast } from 'react-toastify';
 
-const Dashboard = ({user, blogs}) => {
+const Dashboard = ({user, loading}) => {
   const [updateBlog] = useUpdateBlog();
+  const { data: blogs, mutate }=useGetUserBlogs();
 
   const changeBlogStatus = async ( blogId, status ) => {
-    await updateBlog(blogId, { status });
+    updateBlog(blogId, {status})
+       .then(() => mutate())
+       .catch(() => toast.error('Something went wrong...'));
   };
 
   const createOption = ( blogStatus ) => {
@@ -44,7 +47,7 @@ const Dashboard = ({user, blogs}) => {
   const renderBlogs = ( blogs, status ) => (
      <ul className={'user-blogs-list'}>
        {
-         blogs.filter(blog => blog.status === status).map(blog =>
+         blogs && blogs.filter(blog => blog.status === status).map(blog =>
             <li key={blog._id}>
               <Link
                  href={'/blogs/editor/[id]'}
@@ -63,7 +66,7 @@ const Dashboard = ({user, blogs}) => {
      <BaseLayout
         navClass="transparent"
         user={user}
-        loading={false}
+        loading={loading}
      >
        <Masthead imagePath="/images/home-bg.jpg"/>
        <BasePage className="blog-user-page">
@@ -82,10 +85,6 @@ const Dashboard = ({user, blogs}) => {
   )
 }
 
-export const getServerSideProps=withAuth(async ({req, res})=>{
-  const {accessToken}=await auth0.getSession(req);
-  const json=await new BlogApi(accessToken).getByUser();
-  return {blogs: json.data }
-})('admin')
 
-export default Dashboard;
+
+export default withAuth(Dashboard)('admin');
