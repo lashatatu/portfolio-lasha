@@ -6,8 +6,14 @@ import Masthead from 'components/shared/Masthead';
 import PortDropdown from 'components/shared/Dropdown';
 import Link from 'next/link';
 import BlogApi from 'lib/api/blogs';
+import { useUpdateBlog } from '@/actions/blogs';
 
 const Dashboard = ({user, blogs}) => {
+  const [updateBlog] = useUpdateBlog();
+
+  const changeBlogStatus = async ( blogId, status ) => {
+    await updateBlog(blogId, { status });
+  };
 
   const createOption = ( blogStatus ) => {
     return blogStatus === 'draft' ? { view: 'Publish story', value: 'published' }
@@ -21,7 +27,7 @@ const Dashboard = ({user, blogs}) => {
       {
         key: `${blog._id}-published`, text: option.view, handlers: {
           onClick: () => {
-            alert(`changing status to - ${option.value}`);
+            changeBlogStatus(blog._id, option.value);
           }
         }
       },
