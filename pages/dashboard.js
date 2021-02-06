@@ -1,10 +1,8 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import BasePage from '@/components/BasePage';
-import { withAuth } from 'utils/auth0';
-import { Row, Col } from 'reactstrap';
+import auth0, { withAuth } from 'utils/auth0';
+import { Col, Row } from 'reactstrap';
 import Masthead from 'components/shared/Masthead';
-
-import auth0 from 'utils/auth0';
 import BlogApi from 'lib/api/blogs';
 
 const Dashboard = ({user, blogs}) => {
