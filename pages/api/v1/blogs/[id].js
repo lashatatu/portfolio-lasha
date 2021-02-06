@@ -8,5 +8,15 @@ export default async function handleBlog ( req, res ) {
     return res.json(json.data);
   }
 
+  if (req.method === 'PATCH') {
+    try {
+      const { accessToken } = await auth0.getSession(req);
+      const json = await new BlogApi(accessToken).update(req.query.id, req.body);
+      return res.json(json.data);
+    } catch(e) {
+      return res.status(e.status || 422).json(e.response.data);
+    }
+  }
+
 }
 
