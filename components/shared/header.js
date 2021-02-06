@@ -25,7 +25,7 @@ const BsNavLink = ( props ) => {
 const BsNavBrand = () => {
   return (
      <Link href={'/'}>
-       <a className="navbar-brand port-navbar-brand">Lashatatu.dev</a >
+       <a className="navbar-brand port-navbar-brand">lasha</a >
      </Link >
   );
 };
