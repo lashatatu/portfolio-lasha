@@ -5,7 +5,7 @@ import { Button, Col, Row } from 'reactstrap';
 import Masthead from 'components/shared/Masthead';
 import PortDropdown from 'components/shared/Dropdown';
 import Link from 'next/link';
-import { useUpdateBlog,useGetUserBlogs } from '@/actions/blogs';
+import { useGetUserBlogs, useUpdateBlog } from '@/actions/blogs';
 import { toast } from 'react-toastify';
 
 const Dashboard = ({user, loading}) => {
@@ -28,17 +28,17 @@ const Dashboard = ({user, loading}) => {
     const option = createOption(blog.status);
     return [
       {
-        key: `${blog._id}-published`, text: option.view, handlers: {
-          onClick: () => {
-            changeBlogStatus(blog._id, option.value);
-          }
+        key: `${blog._id}-published`,
+        text: option.view,
+        handlers: {
+          onClick: () => changeBlogStatus(blog._id, option.value)
         }
       },
       {
         key: `${blog._id}-delete`, text: 'Delete', handlers: {
-          onClick: () => {
-            changeBlogStatus(blog._id, 'deleted');
-          }
+          onClick: () =>
+            changeBlogStatus(blog._id, 'deleted')
+
         }
       }
     ];
