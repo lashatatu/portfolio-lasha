@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import moment from 'moment'
+import moment from 'moment';
 
 const BlogItem = ({blog}) =>
    <div>
@@ -15,7 +15,7 @@ const BlogItem = ({blog}) =>
          </a>
        </Link>
        <p className="post-meta">Posted by
-         <a href="#"> Lasha Tatulashvili </a>
+         <a href="#"> {blog.author.name} </a>
                                 - {moment(blog.createdAt).format('LLL')}
        </p>
      </div>
