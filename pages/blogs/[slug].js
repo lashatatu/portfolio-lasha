@@ -5,7 +5,7 @@ import { useGetUser } from '@/actions/user';
 import { SlateView } from 'slate-simple-editor';
 import BlogApi from 'lib/api/blogs';
 
-const BlogDetail = ( { blog } ) => {
+const BlogDetail = ({blog, author}) => {
   debugger
   const { data, loading } = useGetUser();
   return (
@@ -34,8 +34,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-  const { data } = await new BlogApi().getBySlug(params.slug);
-  return {props: {blog: data}}
+  const { data: {blog, user: author}} = await new BlogApi().getBySlug(params.slug);
+  return {props: {blog, author}}
 }
 
 export default BlogDetail;

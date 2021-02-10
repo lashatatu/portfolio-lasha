@@ -27,7 +27,7 @@ const Index = () => {
      <BaseLayout
         user={data}
         loading={loading}
-        navClass={'transparant'}
+        navClass={'transparent'}
         className={`cover ${isFlipping ? 'cover-orange' : 'cover-blue'}`}
      >
        <div className="main-section">

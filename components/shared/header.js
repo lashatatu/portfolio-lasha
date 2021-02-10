@@ -13,19 +13,20 @@ import {
   NavbarToggler,
   NavItem
 } from 'reactstrap';
+import ActiveLink from '@/components/shared/ActiveLink';
 
 const BsNavLink = props => {
   const { href, title, className = '' } = props;
   return (
-     <Link href={href}>
+     <ActiveLink activeClassName="active" href={href}>
        <a className={`nav-link port-navbar-link ${className}`}>{title}</a >
-     </Link >
+     </ActiveLink >
   );
 };
 const BsNavBrand = () =>
-   <Link href="/">
-     <a className="navbar-brand port-navbar-brand">Filip Jerga</a >
-   </Link >;
+   <ActiveLink activeClassName={"active"} href="/">
+     <a className="navbar-brand port-navbar-brand">lasha</a >
+   </ActiveLink >;
 const LoginLink = () =>
    <a
       className="nav-link port-navbar-link"
