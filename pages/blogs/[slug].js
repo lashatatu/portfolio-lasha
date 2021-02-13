@@ -14,7 +14,10 @@ const BlogDetail = ({blog, author}) => {
         user={data}
         loading={loading}
      >
-       <BasePage className="slate-container">
+       <BasePage
+          title={`${blog.title} - Lasha tatulashvili`}
+          metaDesctiption={blog.subTitle}
+          className="slate-container">
          <Row >
            <Col md={{ size: 8, offset: 2 }}>
              <Avatar

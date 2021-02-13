@@ -9,11 +9,31 @@ const Portfolio = ( { portfolio } ) => {
      <BaseLayout
         user={dataU}
         loading={loadingU}
+        metaDesctiption={portfolio.description}
      >
-       <BasePage header={'Portfolio Detail'}>
-         {
-           JSON.stringify(portfolio)
-         }
+       <BasePage
+          title={`${portfolio.title} - Lasha tatulashvili`}
+          header={'Portfolio Detail'}
+       >
+         <div className="portfolio-detail">
+           <div className="cover-container d-flex h-100 p-3 mx-auto flex-column">
+             <main
+                role="main"
+                className="inner page-cover"
+             >
+               <h1 className="cover-heading">Title</h1 >
+               <p className="lead dates">dates</p >
+               <p className="lead info mb-0">jobTitle | company | location</p >
+               <p className="lead">description</p >
+               <p className="lead">
+                 <a
+                    href="#"
+                    className="btn btn-lg btn-secondary"
+                 >Visit Company</a >
+               </p >
+             </main >
+           </div >
+         </div >
 
        </BasePage >
      </BaseLayout >

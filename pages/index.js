@@ -2,7 +2,8 @@ import BaseLayout from '@/components/layouts/BaseLayout';
 import { Col, Container, Row } from 'reactstrap';
 import Typed from 'react-typed';
 import { useGetUser } from 'actions/user';
-import { useRef, useState,useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import BasePage from '@/components/BasePage';
 
 const ROLES = ['Developer', 'Tech Lover', 'Team Player', 'Coursor Creator', 'React.js'];
 
@@ -12,7 +13,7 @@ const Index = () => {
   const { data, loading } = useGetUser();
   const flipInterval = useRef();
 
-  useEffect(()=>{
+  useEffect(() => {
     startAnimation()
     return ()=>flipInterval.current && clearInterval(flipInterval.current)
   },[])
@@ -30,18 +31,18 @@ const Index = () => {
         navClass={'transparent'}
         className={`cover ${isFlipping ? 'cover-orange' : 'cover-blue'}`}
      >
-       <div className="main-section">
-         <div className="background-image">
-           <img src="/images/background-index.png"/>
-         </div >
-
-         <Container >
-           <Row >
-             <Col md="6">
-               <div className="hero-section">
-                 <div className={`flipper ${isFlipping ? 'isFlipping' : ''}`}>
-                   <div className="front">
-                     <div className="hero-section-content">
+       <BasePage indexPage title={"portfolio - Lasha Tatulashvili"}>
+         <div className="main-section">
+           <div className="background-image">
+             <img src="/images/background-index.png"/>
+           </div >
+           <Container >
+             <Row >
+               <Col md="6">
+                 <div className="hero-section">
+                   <div className={`flipper ${isFlipping ? 'isFlipping' : ''}`}>
+                     <div className="front">
+                       <div className="hero-section-content">
                        <h2 > Full Stack Web Developer </h2 >
                        <div className="hero-section-content-intro">
                          Have a look at my portfolio and job history.
@@ -52,7 +53,7 @@ const Index = () => {
                         src="/images/section-1.png"
                      />
                      <div className="shadow-custom">
-                       <div className="shadow-inner"></div >
+                       <div className="shadow-inner"> </div >
                      </div >
                    </div >
                    <div className="back">
@@ -101,9 +102,10 @@ const Index = () => {
                  </h1 >
                </div >
              </Col >
-           </Row >
-         </Container >
-       </div >
+             </Row >
+           </Container >
+         </div >
+       </BasePage >
      </BaseLayout >
   );
 }
