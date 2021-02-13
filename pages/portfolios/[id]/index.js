@@ -7,13 +7,15 @@ const Portfolio = ( { portfolio } ) => {
   const { data: dataU, loading: loadingU } = useGetUser();
   return (
      <BaseLayout
+        navClass={'transparent'}
         user={dataU}
         loading={loadingU}
-        metaDesctiption={portfolio.description}
      >
        <BasePage
+          noWrapper
+          index
           title={`${portfolio.title} - Lasha tatulashvili`}
-          header={'Portfolio Detail'}
+          metaDesctiption={portfolio.description}
        >
          <div className="portfolio-detail">
            <div className="cover-container d-flex h-100 p-3 mx-auto flex-column">

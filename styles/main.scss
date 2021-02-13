@@ -4,6 +4,7 @@
 @import "portfolios";
 @import './blogs';
 @import '_about.scss';
+@import "portfolio";
 
 html,body{
   height: 100%;
@@ -16,7 +17,6 @@ html,body{
 }
 
 .base-page{
-  padding: 150px 0;
   color: black;
   background-color: #ecedee;
   min-height: 100vh;
