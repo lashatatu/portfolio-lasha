@@ -72,8 +72,6 @@ const BasePage = props => {
             rel={'cononical'}
             href={`${process.env.BASE_URL}${canonicalPath ? canonicalPath : router.asPath}`}
          />
-
-
        </Head >
        <div className={`${pageType} ${className}`}>
          <Wrapper >
