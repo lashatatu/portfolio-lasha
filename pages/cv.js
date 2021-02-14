@@ -10,7 +10,7 @@ const Cv = () => {
        <BasePage >
          <Row>
            <Col md={{size: 8, offset: 2}}>
-             <iframe style={{width: '100%', height: '800px'}} src="/jerga_cv.pdf"/>
+             <iframe style={{width: '100%', height: '800px'}} src="/public/cvLasha.pdf"/>
            </Col>
          </Row>
        </BasePage >
