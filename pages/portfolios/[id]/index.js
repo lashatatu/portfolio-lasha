@@ -14,7 +14,7 @@ const Portfolio = ( { portfolio } ) => {
      >
        <BasePage
           noWrapper
-          index
+          indexPage
           title={`${portfolio.title} - Lasha tatulashvili`}
           metaDesctiption={portfolio.description}
        >
@@ -60,7 +60,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({params}) {
   const json = await new PortfolioApi().getById(params.id);
   const portfolio = json.data;
-  return { props: {portfolio}};
+  return { props: {portfolio}, revalidate: 60};
 }
 
 export default Portfolio;

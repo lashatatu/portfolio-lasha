@@ -42,7 +42,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
   const { data: { blog, author } } = await new BlogApi().getBySlug(params.slug);
-  return {props: {blog, author}}
+  return {props: {blog, author}, revalidate: 60}
 }
 
 export default BlogDetail;
