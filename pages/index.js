@@ -28,7 +28,7 @@ const Index = () => {
      >
        <BasePage
           indexPage
-          title="Portfolio - Filip Jerga"
+          title="Portfolio - Lasha Tatulashvili"
        >
          <div className="main-section">
            <div className="background-image">
@@ -75,7 +75,7 @@ const Index = () => {
                >
                  <div className="hero-welcome-text">
                    <h1 >
-                     Welcome to the portfolio website of Filip Jerga.
+                     Welcome to the portfolio website of Lasha Tatulashvili.
                      Get informed, collaborate and discover projects I was working on through the years!
                    </h1 >
                  </div >
